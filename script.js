@@ -1,125 +1,127 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+const music = document.getElementById("birthdaySong");
+const playBtn = document.getElementById("playMusic");
 
-body{
-    font-family:'Poppins',sans-serif;
-    background:linear-gradient(135deg,#000,#1b1b1b,#3d1c56);
-    color:white;
-    overflow-x:hidden;
-    text-align:center;
-}
-
-.container{
-    width:90%;
-    max-width:900px;
-    margin:auto;
-    padding:40px 20px;
-}
-
-.title{
-    font-size:3rem;
-    color:#FFD700;
-    margin-top:30px;
-    animation: glow 2s infinite alternate;
-}
-
-.subtitle{
-    color:#ffd6ec;
-    font-size:1.2rem;
-    margin-bottom:30px;
-}
-
-.main-photo{
-    width:250px;
-    height:250px;
-    border-radius:50%;
-    object-fit:cover;
-    border:6px solid gold;
-    box-shadow:0 0 30px hotpink;
-    margin:20px auto;
-    display:block;
-}
-
-.message{
-    background:rgba(255,255,255,.08);
-    border-radius:20px;
-    padding:25px;
-    margin:40px auto;
-    backdrop-filter:blur(10px);
-    border:2px solid rgba(255,215,0,.4);
-}
-
-.message h2{
-    color:gold;
-    margin-bottom:20px;
-}
-
-.message p{
-    line-height:1.9;
-    font-size:18px;
-}
-
-#playMusic{
-    background:gold;
-    color:black;
-    border:none;
-    padding:15px 35px;
-    font-size:18px;
-    border-radius:50px;
-    cursor:pointer;
-    margin:30px 0;
-    transition:.3s;
-}
-
-#playMusic:hover{
-    transform:scale(1.08);
-    background:#ff69b4;
-    color:white;
-}
-
-audio{
-    display:none;
-}
-
-.gallery-title{
-    margin:50px 0 20px;
-    color:#FFD700;
-    font-size:2rem;
-}
-
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-}
-
-.gallery img{
-    width:100%;
-    border-radius:20px;
-    border:3px solid gold;
-    transition:.4s;
-    box-shadow:0 0 20px rgba(255,215,0,.5);
-}
-
-.gallery img:hover{
-    transform:scale(1.05);
-}
-
-.footer{
-    margin-top:50px;
-    color:#ffb6d9;
-    font-size:18px;
-}
-
-@keyframes glow{
-    from{
-        text-shadow:0 0 10px gold;
+playBtn.addEventListener("click", () => {
+    if (music.paused) {
+        music.play();
+        playBtn.innerHTML = "⏸ Pause Birthday Song";
+    } else {
+        music.pause();
+        playBtn.innerHTML = "🎵 Play Birthday Song";
     }
-    to{
-        text-shadow:0 0 30px gold,
-                    0 0 60px hotpink;
+});
+
+// Floating Hearts
+function createHeart() {
+    const heart = document.createElement("div");
+
+    heart.innerHTML = "❤️";
+    heart.style.position = "fixed";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.top = "100vh";
+    heart.style.fontSize = (20 + Math.random() * 20) + "px";
+    heart.style.opacity = Math.random();
+    heart.style.pointerEvents = "none";
+    heart.style.zIndex = "9999";
+
+    document.body.appendChild(heart);
+
+    let pos = 100;
+    const move = setInterval(() => {
+        pos -= 1;
+
+        heart.style.top = pos + "vh";
+        heart.style.transform =
+            `translateX(${Math.sin(pos / 5) * 20}px)`;
+
+        if (pos < -10) {
+            clearInterval(move);
+            heart.remove();
+        }
+
+    }, 40);
+}
+
+setInterval(createHeart, 600);
+
+// Confetti
+function confetti() {
+
+    for (let i = 0; i < 120; i++) {
+
+        let piece = document.createElement("div");
+
+        piece.style.position = "fixed";
+        piece.style.width = "8px";
+        piece.style.height = "8px";
+
+        piece.style.background =
+            `hsl(${Math.random() * 360},100%,60%)`;
+
+        piece.style.left = Math.random() * 100 + "vw";
+        piece.style.top = "-20px";
+
+        piece.style.pointerEvents = "none";
+
+        piece.style.zIndex = "9998";
+
+        document.body.appendChild(piece);
+
+        let y = -20;
+
+        const fall = setInterval(() => {
+
+            y += 5;
+
+            piece.style.top = y + "px";
+
+            piece.style.transform =
+                `rotate(${y * 4}deg)`;
+
+            if (y > window.innerHeight) {
+
+                clearInterval(fall);
+
+                piece.remove();
+
+            }
+
+        }, 20);
+
     }
-      }
+
+}
+
+window.onload = confetti;
+
+// Sparkles
+
+function sparkle(){
+
+const star=document.createElement("div");
+
+star.innerHTML="✨";
+
+star.style.position="fixed";
+
+star.style.left=Math.random()*100+"vw";
+
+star.style.top=Math.random()*100+"vh";
+
+star.style.fontSize="20px";
+
+star.style.pointerEvents="none";
+
+star.style.zIndex="9999";
+
+document.body.appendChild(star);
+
+setTimeout(()=>{
+
+star.remove();
+
+},1000);
+
+}
+
+setInterval(sparkle,300);

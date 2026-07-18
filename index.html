@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -8,75 +10,65 @@
 
 <link rel="stylesheet" href="style.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Cormorant+Garamond:wght@500;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<div id="fireworks"></div>
+<div id="loading-screen">
 
-<div class="hearts"></div>
+    <div class="loader-box">
 
-<div class="container">
+        <h1>Happy 21st Birthday</h1>
 
-<h1 class="title">
-🎉 Happy 21st Birthday Makhi 🎉
-</h1>
+        <h2>Makhi ❤️</h2>
 
-<p class="subtitle">
-To the best friend I could ever ask for ❤️
-</p>
+        <p>A special gift made just for you...</p>
 
-<img src="images/20250617_121732.jpg" class="main-photo">
+        <button id="openGift">
+            OPEN MY SURPRISE
+        </button>
 
-<div class="message">
-
-<h2>My Letter To You ❤️</h2>
-
-<p>
-
-Happy 21st Birthday, Makhi! ❤️
-
-You're the best friend I could ever ask for.
-
-I love you so much and I miss you every second of the day.
-
-Thank you for every laugh, every memory, every late-night conversation and for simply being YOU.
-
-You have the purest heart and one of the most beautiful souls I've ever known.
-
-I hope this year brings you happiness, peace, success, good health, answered prayers and everything your heart desires.
-
-Never forget how loved you are.
-
-Today is all about celebrating YOU.
-
-I love you forever.
-
-❤️
-
-</p>
+    </div>
 
 </div>
 
-<button id="playMusic">
-
-🎵 Play Birthday Song
-
-</button>
-
-<audio id="birthdaySong" controls>
+<audio id="birthdaySong">
 
 <source src="music/birthday.mp3" type="audio/mpeg">
 
 </audio>
 
-<h2 class="gallery-title">
+<div id="website" class="hidden">
 
-📸 Our Memories
+<header class="hero">
+
+<h1>
+
+Happy 21st Birthday
+
+</h1>
+
+<h2>
+
+Makhi ❤️
+
+</h2>
+
+<p>
+
+Today is all about celebrating someone incredibly special.
+
+</p>
+
+</header>
+
+<section class="photo-grid">
+
+<h2>
+
+Beautiful Moments
 
 </h2>
 
@@ -90,17 +82,12 @@ I love you forever.
 
 <img src="images/Screenshot_20250403_184223_WhatsApp.jpg">
 
-</div>
+<img src="images/Image 1.jpg">
 
-<div class="footer">
+<img src="images/Image2.jpg">
 
-Made with ❤️ by Anita
-
-</div>
+<img src="images/Image 3.jpg">
 
 </div>
 
-<script src="script.js"></script>
-
-</body>
-</html>
+</section>
